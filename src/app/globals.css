@@ -1,0 +1,48 @@
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+
+  --logo-color: #5D5D6D;
+  --bg-primary: #F0F0F5;
+  --bg-secondary: #F3F5F6;
+  --text-dark: #737380;
+  --text-dark-secondary: #41414D;
+
+  --on-all-elements: 50;
+  --on-common-elements: 25;
+
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --red: #DE3838;
+  --orange: #FFA585;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
