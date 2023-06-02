@@ -1,4 +1,4 @@
-import "./globals.css";
+import "styles/globals.css";
 import { Saira } from "next/font/google";
 
 import Header from "components/Header";
