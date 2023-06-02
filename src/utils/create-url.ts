@@ -1,4 +1,4 @@
-import { ReadonlyURLSearchParams } from 'next/navigation';
+import { ReadonlyURLSearchParams } from 'next/navigation'
 
 type CreateUrlParams = {
   pathname: string
@@ -6,8 +6,8 @@ type CreateUrlParams = {
 }
 
 export const createUrl = ({ params, pathname }: CreateUrlParams) => {
-  const paramsString = params.toString();
-  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`;
+  const paramsString = params.toString()
+  const queryString = `${paramsString.length ? '?' : ''}${paramsString}`
 
-  return `${pathname}${queryString}`;
-};
+  return `${pathname}${queryString}`
+}

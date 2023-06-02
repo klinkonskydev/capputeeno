@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import Tabs, { Tab } from "components/Tabs";
-import FilterBy from "components/FilterBy";
+import Tabs, { Tab } from 'components/Tabs'
+import FilterBy from 'components/FilterBy'
 
-import * as S from "./styles";
+import * as S from './styles'
 
 const tabs: Tab[] = [
   {
-    label: "TODOS",
-    url: "/",
+    label: 'TODOS',
+    url: '/'
   },
   {
-    label: "CAMISETAS",
-    url: "/",
+    label: 'CAMISETAS',
+    url: '/'
   },
   {
-    label: "CANECAS",
-    url: "/",
-  },
-];
+    label: 'CANECAS',
+    url: '/'
+  }
+]
 
 type HomeTemplateProps = React.PropsWithChildren<unknown>
 export default function HomeTemplate({ children }: HomeTemplateProps) {
@@ -35,5 +35,5 @@ export default function HomeTemplate({ children }: HomeTemplateProps) {
 
       {children}
     </S.Wrapper>
-  );
+  )
 }

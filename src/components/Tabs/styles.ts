@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Link from "next/link";
 
 type TabProps = {
   isActive: boolean;
@@ -19,7 +20,7 @@ const tabModifiers = {
   `,
 };
 
-export const Tab = styled.a<TabProps>`
+export const Tab = styled(Link)<TabProps>`
   ${({ isActive }) => css`
     font-family: inherit;
     font-size: 1.6rem;

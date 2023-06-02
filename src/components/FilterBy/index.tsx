@@ -1,10 +1,10 @@
-import { sorting } from "lib/constants";
+import { sorting } from 'lib/constants'
 
-import CrossDown from "components/Icons/CrossDown";
-import Dropdown from "components/Dropdown";
+import CrossDown from 'components/Icons/CrossDown'
+import Dropdown from 'components/Dropdown'
 
-import * as S from "./styles";
-import SortFilterItem from "./FilterBySlug";
+import * as S from './styles'
+import SortFilterItem from './FilterBySlug'
 
 const FilterBy = () => {
   return (
@@ -16,10 +16,12 @@ const FilterBy = () => {
       }
     >
       <S.ListWrapper>
-        {sorting.map((item) => <SortFilterItem item={item} />)}
+        {sorting.map((item) => (
+          <SortFilterItem item={item} key={item.title} />
+        ))}
       </S.ListWrapper>
     </Dropdown>
-  );
-};
+  )
+}
 
-export default FilterBy;
+export default FilterBy
