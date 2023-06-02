@@ -18,8 +18,8 @@ export const ListWrapper = styled.ul`
   gap: 0.8rem;
 `;
 
-export const List = styled.li`
+export const Link = styled.a`
   font-size: 1.4rem;
   font-family: inherit;
   color: var(--text-dark);
-`;
+`

@@ -1,6 +1,10 @@
+import { sorting } from "lib/constants";
+
 import CrossDown from "components/Icons/CrossDown";
 import Dropdown from "components/Dropdown";
+
 import * as S from "./styles";
+import SortFilterItem from "./FilterBySlug";
 
 const FilterBy = () => {
   return (
@@ -12,10 +16,7 @@ const FilterBy = () => {
       }
     >
       <S.ListWrapper>
-        <S.List>Novidades</S.List>
-        <S.List>Preço: Maior - menor</S.List>
-        <S.List>Preço: Menor - maior</S.List>
-        <S.List>Mais vendidos</S.List>
+        {sorting.map((item) => <SortFilterItem item={item} />)}
       </S.ListWrapper>
     </Dropdown>
   );
