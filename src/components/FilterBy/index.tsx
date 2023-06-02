@@ -7,7 +7,7 @@ const FilterBy = () => {
     <Dropdown
       title={
         <S.Title>
-          Filtrar por <CrossDown />{" "}
+          Filtrar por <CrossDown />
         </S.Title>
       }
     >

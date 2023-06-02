@@ -21,4 +21,5 @@ export const ListWrapper = styled.ul`
 export const List = styled.li`
   font-size: 1.4rem;
   font-family: inherit;
+  color: var(--text-dark);
 `;
