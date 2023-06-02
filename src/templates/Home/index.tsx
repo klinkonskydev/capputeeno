@@ -20,7 +20,8 @@ const tabs: Tab[] = [
   },
 ];
 
-export default function HomeTemplate() {
+type HomeTemplateProps = React.PropsWithChildren<unknown>
+export default function HomeTemplate({ children }: HomeTemplateProps) {
   return (
     <S.Wrapper>
       <S.Header>
@@ -31,6 +32,8 @@ export default function HomeTemplate() {
 
         <FilterBy />
       </S.Header>
+
+      {children}
     </S.Wrapper>
   );
 }
