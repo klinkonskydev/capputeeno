@@ -1,3 +1,4 @@
+import CardList from 'components/CardList'
 import { defaultSort, sorting } from 'lib/constants'
 import { getProducts } from 'lib/graphql'
 import HomeTemplate from 'templates/Home'
@@ -17,7 +18,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <HomeTemplate>
-      <h1>Cart</h1>
+      <CardList products={products} />
     </HomeTemplate>
   )
 }

@@ -1,21 +1,23 @@
-"use client";
+'use client'
 
-import * as S from "./styles";
+import * as S from './styles'
 
 export type Tab = {
-  label: string;
-  url: string;
-};
+  label: string
+  url: string
+}
 
 type TabsProps = {
-  tabs: Tab[];
-};
+  tabs: Tab[]
+}
 
 const Tabs = ({ tabs }: TabsProps) => {
   return tabs.map((tab, i) => (
     <li key={`${tab.label}-${i}`}>
-      <S.Tab href={tab.url} isActive={i === 0}>{tab.label}</S.Tab>
+      <S.Tab href={tab.url} isActive={i === 0}>
+        {tab.label}
+      </S.Tab>
     </li>
-  ));
-};
-export default Tabs;
+  ))
+}
+export default Tabs

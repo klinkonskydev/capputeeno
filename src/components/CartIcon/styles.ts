@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import media from "styled-media-query";
+import styled from 'styled-components'
+import media from 'styled-media-query'
 
-export const Counter = styled("div")`
+export const Counter = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,15 +22,13 @@ export const Counter = styled("div")`
   bottom: -5px;
 
   background: var(--red);
-`;
+`
 
-export const Wrapper = styled("button")`
+export const Wrapper = styled('button')`
   border: 0;
   outline: 0;
   background: transparent;
 
-  width: 25px;
-  height: 25px;
   position: relative;
 
   cursor: pointer;
@@ -45,9 +43,14 @@ export const Wrapper = styled("button")`
     background: darkred;
   }
 
-  ${media.greaterThan("medium")`
+  &:focus-within {
+    outline: 2px solid var(--black);
+    outline-offset: 6px;
+  }
+
+  ${media.greaterThan('medium')`
     display: flex;
     align-items: center;
     gap: 2.7rem;
   `}
-`;
+`

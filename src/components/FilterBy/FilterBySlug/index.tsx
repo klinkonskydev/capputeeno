@@ -28,7 +28,9 @@ const SortFilterItem = ({ item }: { item: SortFilterItem }) => {
 
   return (
     <li>
-      <S.Link prefetch={false} href={href} isActive={active}>{item.title}</S.Link>
+      <S.Link prefetch={false} href={href} isActive={active}>
+        {item.title}
+      </S.Link>
     </li>
   )
 }

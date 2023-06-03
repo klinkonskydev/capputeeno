@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { TextFieldProps } from ".";
+import styled, { css } from 'styled-components'
+import { TextFieldProps } from '.'
 
 export const TextField = styled.input`
   width: 100%;
@@ -17,18 +17,27 @@ export const TextField = styled.input`
   &::placeholder {
     color: var(--text-dark);
   }
-`;
+`
 
-export const Icon = styled.span`
+export const Icon = styled.button`
+  border: 0;
+  outline: 0;
+  background: transparent;
+
   width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
 
-type WrapperProps = Pick<TextFieldProps, "iconPosition">;
+  &:focus svg path,
+  &:focus svg circle {
+    stroke: var(--orange);
+  }
+`
 
-export const Wrapper = styled.label<WrapperProps>`
+type WrapperProps = Pick<TextFieldProps, 'iconPosition'>
+
+export const Wrapper = styled.div<WrapperProps>`
   ${({ iconPosition }) => css`
     display: flex;
     align-items: center;
@@ -36,7 +45,6 @@ export const Wrapper = styled.label<WrapperProps>`
 
     width: 100%;
     max-width: 352px;
-    border: 2px solid transparent;
 
     background-color: var(--bg-secondary);
 
@@ -49,11 +57,11 @@ export const Wrapper = styled.label<WrapperProps>`
     padding-${iconPosition}: 1.6rem;
 
     &:focus-within {
-      border-color: #EEEEEE;
+      box-shadow: 0 0 2px 1px var(--black);
     }
 
     ${Icon} {
-      order: ${iconPosition === "left" ? 0 : 1} 
+      order: ${iconPosition === 'left' ? 0 : 1}
     }
   `}
-`;
+`

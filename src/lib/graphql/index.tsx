@@ -1,4 +1,5 @@
 import { SortFilterItem } from 'lib/constants'
+import productsMock from './products-mock'
 
 type GetProductsParams = {
   query?: string
@@ -9,5 +10,5 @@ export const getProducts = async ({
   sortKey,
   query
 }: GetProductsParams) => {
-  return []
+  return reverse ? productsMock.reverse() : productsMock
 }

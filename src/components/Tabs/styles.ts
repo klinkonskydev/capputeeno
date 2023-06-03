@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
-import Link from "next/link";
+import styled, { css } from 'styled-components'
+import Link from 'next/link'
 
 type TabProps = {
-  isActive: boolean;
-};
+  isActive: boolean
+}
 
 const tabModifiers = {
   active: () => css`
@@ -11,14 +11,14 @@ const tabModifiers = {
     color: var(--text-dark-secondary);
 
     &::after {
-      content: "";
+      content: '';
       width: 100%;
       height: 4px;
       background: var(--orange);
       display: block;
     }
-  `,
-};
+  `
+}
 
 export const Tab = styled(Link)<TabProps>`
   ${({ isActive }) => css`
@@ -35,4 +35,4 @@ export const Tab = styled(Link)<TabProps>`
 
     ${isActive && tabModifiers.active()}
   `}
-`;
+`

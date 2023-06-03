@@ -1,13 +1,13 @@
-import * as S from "./styles";
+import * as S from './styles'
 
 export type TextFieldProps = {
-  icon?: React.ReactNode;
-  iconPosition?: "left" | "right";
-} & React.InputHTMLAttributes<HTMLInputElement>;
+  icon?: React.ReactNode
+  iconPosition?: 'left' | 'right'
+} & React.InputHTMLAttributes<HTMLInputElement>
 
 const TextField = ({
   icon,
-  iconPosition = "right",
+  iconPosition = 'right',
   ...props
 }: TextFieldProps) => {
   return (
@@ -15,6 +15,6 @@ const TextField = ({
       {!!icon && <S.Icon>{icon}</S.Icon>}
       <S.TextField {...props} />
     </S.Wrapper>
-  );
-};
-export default TextField;
+  )
+}
+export default TextField
