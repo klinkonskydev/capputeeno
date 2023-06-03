@@ -2,6 +2,7 @@ import { Saira_Stencil_One } from 'next/font/google'
 import styled from 'styled-components'
 import media from 'styled-media-query'
 import MediaMatch from 'components/MediaMatch'
+import Container from 'components/Container'
 
 export const sairaStencilOne = Saira_Stencil_One({
   weight: ['400'],
@@ -9,18 +10,14 @@ export const sairaStencilOne = Saira_Stencil_One({
 })
 
 export const Header = styled.header`
+  width: 100%;
+`
+
+export const Content = styled(Container)`
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  padding: 1.2rem 1.8rem;
-
-  ${media.greaterThan('medium')`
-    padding: 1.9rem 10rem;
-  `}
-
-  ${media.greaterThan('large')`
-    padding: 1.9rem 16rem;
-  `}
+  padding: 1.2rem 2.4rem;
 `
 
 export const Logo = styled.a`

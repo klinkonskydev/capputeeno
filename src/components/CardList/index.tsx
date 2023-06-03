@@ -1,19 +1,17 @@
 'use client'
 
 import Cart from 'components/Card'
-import { Products } from 'lib/graphql/products-mock'
 
 import * as S from './styles'
+import { getProducts } from 'lib/graphql'
 
-type CardListProps = {
-  products: Products
-}
+const CardList = () => {
+  const { products } = getProducts({ page: 0, perPage: 12 })
 
-const CardList = ({ products }: CardListProps) => {
   return (
     <S.Wrapper>
       {products.map((product) => (
-        <Cart key={product.title} {...product} />
+        <Cart key={product.id} {...product} />
       ))}
     </S.Wrapper>
   )

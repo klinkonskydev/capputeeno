@@ -7,13 +7,13 @@ export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-width: 256px;
-  width: 100%;
   margin: 0 auto;
   color: var(--shapes-light);
   overflow: hidden;
   outline: 2px solid transparent;
   transition: outline-color 200ms;
+  max-width: 350px;
+  width: 100%;
 
   img {
     transition: scale 200ms;
@@ -31,7 +31,7 @@ export const Wrapper = styled(Link)`
 
 export const ImageWrapper = styled.div`
   position: relative;
-  max-width: 256px;
+  display: block;
   width: 100%;
   height: 300px;
   max-height: 300px;
