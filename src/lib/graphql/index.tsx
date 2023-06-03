@@ -9,7 +9,7 @@ const default_port = 'http://localhost:3333'
 const PORT = process.env.NEXT_PUBLIC_GRAPQH_QL ?? default_port
 
 type FetcherParams = {
-  page: number,
+  page: number
   perPage: number
   order?: string
 }
@@ -18,17 +18,17 @@ const fetcher = (variables: FetcherParams): AxiosPromise<Products> => {
   return axios.post<Products>(PORT, { query: getProductsQuery, variables })
 }
 
-
 type GetProducsParams = {
-  page: number,
+  page: number
   perPage: number
   order?: string
 }
 
 export const getProducts = ({ page, perPage, order }: GetProducsParams) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = useQuery({
     queryFn: () => fetcher({ page, perPage, order }),
-    queryKey: ['getAllProducts'],
+    queryKey: ['getAllProducts']
   })
 
   return {

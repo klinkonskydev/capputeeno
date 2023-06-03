@@ -28,8 +28,8 @@ export default function HomeTemplate({ children }: HomeTemplateProps) {
       <Container>
         <S.Header>
           <S.TabsWrapper>
-              {/* @ts-expect-error Server Component */}
-              <Tabs tabs={tabs} />
+            {/* @ts-expect-error Server Component */}
+            <Tabs tabs={tabs} />
           </S.TabsWrapper>
 
           <FilterBy />
