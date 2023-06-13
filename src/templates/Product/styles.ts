@@ -37,6 +37,7 @@ export const Price = styled.h3`
   font: normal 600 2rem/150% Saira, sans-serif;
   color: var(--shapes-dark);
   margin-bottom: 2.4rem;
+  font-variant-numeric: tabular-nums;
 `
 
 export const Info = styled.p`

@@ -57,7 +57,7 @@ export const Wrapper = styled.div<WrapperProps>`
     padding-${iconPosition}: 1.6rem;
 
     &:focus-within {
-      box-shadow: 0 0 2px 1px var(--black);
+      box-shadow: 0 0 0 2px black;
     }
 
     ${Icon} {

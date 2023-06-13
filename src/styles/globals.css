@@ -26,6 +26,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*::selection {
+  color: var(--shapes-dark);
+  background: var(--orange);
 }
 
 html,

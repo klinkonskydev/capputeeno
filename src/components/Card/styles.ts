@@ -62,4 +62,5 @@ export const Price = styled.p`
   font-weight: 600;
   font-family: inherit;
   color: var(--shapes-dark);
+  font-variant-numeric: tabular-nums;
 `
