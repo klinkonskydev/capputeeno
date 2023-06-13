@@ -12,12 +12,13 @@ type CardListProps = {
 }
 
 const CardList = ({ isLoading, products }: CardListProps) => {
-
   return isLoading ? (
     <CardListSkeleton />
   ) : (
     <S.Wrapper>
-      {products?.map((product) => <Cart key={product.id} {...product} />)}
+      {products?.map((product) => (
+        <Cart key={product.id} {...product} />
+      ))}
     </S.Wrapper>
   )
 }

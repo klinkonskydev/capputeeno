@@ -20,7 +20,7 @@ export default function Home({ searchParams }: HomeProps) {
 
   useEffect(() => {
     refetch()
-  }, [searchParams])
+  }, [searchParams, refetch])
 
   return (
     <HomeTemplate>

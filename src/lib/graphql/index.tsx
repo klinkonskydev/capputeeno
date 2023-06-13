@@ -19,7 +19,8 @@ const fetcher = <T, E>(variables: E, query: string): AxiosPromise<T> => {
 export const getProducts = (params: FilterParams) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, isLoading, refetch } = useQuery({
-    queryFn: () => fetcher<ProductsResponse, FilterParams>(params, getProductsQuery),
+    queryFn: () =>
+      fetcher<ProductsResponse, FilterParams>(params, getProductsQuery),
     queryKey: ['getAllProducts']
   })
 
@@ -35,13 +36,15 @@ type GetProductParam = {
 }
 
 export const getProduct = (params: GetProductParam) => {
+  // eslint-disable-next-line
   const { data, isLoading } = useQuery({
-    queryFn: () => fetcher<ProductResponse, GetProductParam>(params, getProductQuery),
+    queryFn: () =>
+      fetcher<ProductResponse, GetProductParam>(params, getProductQuery),
     queryKey: ['getProduct']
   })
 
   return {
-    product: data?.data.data.Product ?? {} as Product,
+    product: data?.data.data.Product ?? ({} as Product),
     isLoading
   }
 }
