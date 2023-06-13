@@ -1,20 +1,34 @@
 'use client'
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Suspense, useEffect } from 'react'
+
+import HomeTemplate from 'templates/Home'
 import CardList from 'components/CardList'
 import Container from 'components/Container'
-import HomeTemplate from 'templates/Home'
+import CardListSkeleton from 'components/CardList/skeleton'
+import { ProductFilter } from 'lib/graphql/types'
+import { getProducts } from 'lib/graphql'
+import { creteGraphqlParamsByUrl } from 'utils/create-graphql-params-by-url'
 
-export default function Home() {
-  const client = new QueryClient()
+type HomeProps = {
+  searchParams: ProductFilter
+}
+
+export default function Home({ searchParams }: HomeProps) {
+  const graphqlParams = creteGraphqlParamsByUrl({ params: searchParams })
+  const { products, isLoading, refetch } = getProducts(graphqlParams)
+
+  useEffect(() => {
+    refetch()
+  }, [searchParams])
 
   return (
-    <QueryClientProvider client={client}>
-      <HomeTemplate>
-        <Container>
-          <CardList />
-        </Container>
-      </HomeTemplate>
-    </QueryClientProvider>
+    <HomeTemplate>
+      <Container>
+        <Suspense fallback={<CardListSkeleton />}>
+          <CardList products={products} isLoading={isLoading} />
+        </Suspense>
+      </Container>
+    </HomeTemplate>
   )
 }

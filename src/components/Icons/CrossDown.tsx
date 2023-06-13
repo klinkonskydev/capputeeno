@@ -15,5 +15,5 @@ export default function CrossDown() {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }

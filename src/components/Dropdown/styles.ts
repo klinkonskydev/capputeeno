@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 export const Title = styled.div`
   cursor: pointer;
@@ -8,7 +8,7 @@ export const Title = styled.div`
   align-items: center;
   color: var(--text-dark);
   z-index: var(--on-all-elements);
-`;
+`
 
 export const Overlay = styled.div`
   background: #00000050;
@@ -16,7 +16,7 @@ export const Overlay = styled.div`
   inset: 0 0 0 0;
   z-index: var(--on-common-elements);
   transition: opacity 250ms;
-`;
+`
 
 export const Content = styled.div`
   position: absolute;
@@ -30,11 +30,11 @@ export const Content = styled.div`
   transition: transform 0.2s ease-in, opacity 250ms;
 
   z-index: var(--on-all-elements);
-`;
+`
 
 type WrapperProps = {
-  isOpen: boolean;
-};
+  isOpen: boolean
+}
 
 const wrapperModifiers = {
   open: () => css`
@@ -48,8 +48,8 @@ const wrapperModifiers = {
     pointer-events: none;
     transform: translateY(-2rem);
     visibility: hidden;
-  `,
-};
+  `
+}
 
 export const Wrapper = styled.div<WrapperProps>`
   ${({ isOpen }) => css`
@@ -62,4 +62,4 @@ export const Wrapper = styled.div<WrapperProps>`
       ${!isOpen && wrapperModifiers.close()}
     }
   `}
-`;
+`

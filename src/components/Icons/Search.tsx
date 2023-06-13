@@ -24,7 +24,7 @@ const SearchIcon = () => {
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default SearchIcon;
+export default SearchIcon

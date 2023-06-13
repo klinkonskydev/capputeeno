@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import * as S from "./styles";
+import { useEffect, useState } from 'react'
+import * as S from './styles'
 
 type DropdownProps = {
-  title: React.ReactNode;
-  children: React.ReactNode;
-};
+  title: React.ReactNode
+  children: React.ReactNode
+}
 
 const Dropdown = ({ title, children }: DropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    document.body.style.overflow = isOpen ? 'hidden' : 'unset'
 
     return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   return (
     <S.Wrapper isOpen={isOpen}>
@@ -24,7 +24,7 @@ const Dropdown = ({ title, children }: DropdownProps) => {
       <S.Content aria-hidden={!isOpen}>{children}</S.Content>
       <S.Overlay aria-hidden={!isOpen} onClick={() => setIsOpen(!isOpen)} />
     </S.Wrapper>
-  );
-};
+  )
+}
 
-export default Dropdown;
+export default Dropdown

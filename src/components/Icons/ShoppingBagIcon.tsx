@@ -23,6 +23,6 @@ const ShoppingBagIcon = () => (
       d="M16 11a4 4 0 0 1-8 0"
     />
   </svg>
-);
+)
 
-export default ShoppingBagIcon;
+export default ShoppingBagIcon

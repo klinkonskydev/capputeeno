@@ -7,10 +7,13 @@ describe('<Cart />', () => {
   it('should render Card correctly', () => {
     render(<Card {...cardMock} />)
 
-    expect(screen.getByRole('link')).toHaveAttribute('href', cardMock.slug)
+    expect(screen.getByRole('link')).toHaveAttribute(
+      'href',
+      `product/${cardMock.id}`
+    )
     expect(screen.getByRole('img')).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: cardMock.title })
+      screen.getByRole('heading', { name: cardMock.name })
     ).toBeInTheDocument()
     expect(screen.getByLabelText(/product price/)).toBeInTheDocument()
   })

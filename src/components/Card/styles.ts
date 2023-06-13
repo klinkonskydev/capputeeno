@@ -52,6 +52,12 @@ export const Title = styled.h3`
   color: var(--text-dark);
 `
 
+export const Line = styled.div`
+  width: 100%;
+  height: 2px;
+  background: var(--shapes-light);
+`
+
 export const Price = styled.p`
   font-weight: 600;
   font-family: inherit;

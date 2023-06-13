@@ -9,15 +9,15 @@ import Container from 'components/Container'
 const tabs: Tab[] = [
   {
     label: 'TODOS',
-    url: '/'
+    param: ''
   },
   {
     label: 'CAMISETAS',
-    url: '/'
+    param: 't-shirts'
   },
   {
     label: 'CANECAS',
-    url: '/'
+    param: 'mugs'
   }
 ]
 
@@ -28,7 +28,6 @@ export default function HomeTemplate({ children }: HomeTemplateProps) {
       <Container>
         <S.Header>
           <S.TabsWrapper>
-            {/* @ts-expect-error Server Component */}
             <Tabs tabs={tabs} />
           </S.TabsWrapper>
 

@@ -33,7 +33,3 @@ export const sorting: SortFilterItem[] = [
     reverse: false
   }
 ]
-
-export const HIDDEN_PRODUCT_TAG = 'nextjs-frontend-hidden'
-export const DEFAULT_OPTION = 'Default Title'
-export const GRAPHQL_API_ENDPOINT = '/api/2023-01/graphql.json'

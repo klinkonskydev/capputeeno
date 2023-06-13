@@ -1,18 +1,23 @@
 'use client'
 
+import { Product } from 'lib/graphql/types'
 import Cart from 'components/Card'
 
 import * as S from './styles'
-import { getProducts } from 'lib/graphql'
+import CardListSkeleton from './skeleton'
 
-const CardList = () => {
-  const { products } = getProducts({ page: 0, perPage: 12 })
+type CardListProps = {
+  products: Product[]
+  isLoading: boolean
+}
 
-  return (
+const CardList = ({ isLoading, products }: CardListProps) => {
+
+  return isLoading ? (
+    <CardListSkeleton />
+  ) : (
     <S.Wrapper>
-      {products.map((product) => (
-        <Cart key={product.id} {...product} />
-      ))}
+      {products?.map((product) => <Cart key={product.id} {...product} />)}
     </S.Wrapper>
   )
 }

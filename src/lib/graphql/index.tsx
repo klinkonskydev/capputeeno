@@ -1,37 +1,47 @@
 'use client'
 import axios, { AxiosPromise } from 'axios'
+import { useQuery } from '@tanstack/react-query'
 
 import { getProductsQuery } from './queries/getProducts'
-import { Products } from './types'
-import { useQuery } from '@tanstack/react-query'
+import { FilterParams } from './types'
+import { ProductsResponse } from './types'
+import { ProductResponse } from './types'
+import { getProductQuery } from './queries/getProduct'
+import { Product } from './types'
 
 const default_port = 'http://localhost:3333'
 const PORT = process.env.NEXT_PUBLIC_GRAPQH_QL ?? default_port
 
-type FetcherParams = {
-  page: number
-  perPage: number
-  order?: string
+const fetcher = <T, E>(variables: E, query: string): AxiosPromise<T> => {
+  return axios.post<T>(PORT, { query, variables })
 }
 
-const fetcher = (variables: FetcherParams): AxiosPromise<Products> => {
-  return axios.post<Products>(PORT, { query: getProductsQuery, variables })
-}
-
-type GetProducsParams = {
-  page: number
-  perPage: number
-  order?: string
-}
-
-export const getProducts = ({ page, perPage, order }: GetProducsParams) => {
+export const getProducts = (params: FilterParams) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data } = useQuery({
-    queryFn: () => fetcher({ page, perPage, order }),
+  const { data, isLoading, refetch } = useQuery({
+    queryFn: () => fetcher<ProductsResponse, FilterParams>(params, getProductsQuery),
     queryKey: ['getAllProducts']
   })
 
   return {
-    products: data?.data.data.allProducts ?? []
+    products: data?.data.data.allProducts ?? [],
+    isLoading,
+    refetch
+  }
+}
+
+type GetProductParam = {
+  id: string
+}
+
+export const getProduct = (params: GetProductParam) => {
+  const { data, isLoading } = useQuery({
+    queryFn: () => fetcher<ProductResponse, GetProductParam>(params, getProductQuery),
+    queryKey: ['getProduct']
+  })
+
+  return {
+    product: data?.data.data.Product ?? {} as Product,
+    isLoading
   }
 }
