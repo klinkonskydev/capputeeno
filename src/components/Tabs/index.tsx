@@ -3,6 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import * as S from './styles'
 import { createUrl } from 'utils/create-url'
+import createQueryString from 'utils/create-query-string'
 
 export type Tab = {
   label: string
@@ -22,9 +23,7 @@ const Tab = ({ tabs }: TabsProps) => {
     <S.Root defaultValue="" data-orientation="horizontal">
       <S.List>
         {tabs.map(({ label, param }) => {
-          const params = new URLSearchParams({
-            ...(param && { category: param })
-          })
+          const params = new URLSearchParams(createQueryString({ name: 'category', value: param, searchParams }))
           const url = createUrl({ pathname, params })
 
           const activated =

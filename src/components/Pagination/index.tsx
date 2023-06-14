@@ -3,6 +3,7 @@ import React, { useCallback } from 'react'
 import * as S from './styles'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { createUrl } from 'utils/create-url'
+import createQueryString from 'utils/create-query-string'
 
 type PaginationProps = {
   totalProduct: number
@@ -18,19 +19,9 @@ export default function Pagination({ totalProduct, numberOfProductsPerPage = 12 
   const numberOfPages = Math.ceil(totalProduct / numberOfProductsPerPage)
   const arrayOfButtons = Array.from({ length: numberOfPages }, (_, i) => i + 1)
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(String(searchParams))
-      params.set(name, value)
-
-      return params.toString()
-    },
-    [searchParams]
-  )
-
-  const handleClick = (page: number) => {
-    if (currentPage === page) return;
-    const params = new URLSearchParams(createQueryString('page', String(page)))
+  const handleClick = (value: number) => {
+    if (currentPage === value) return;
+    const params = new URLSearchParams(createQueryString({ name: 'page', value, searchParams }))
     const url = createUrl({ pathname, params })
     push(url)
   }
