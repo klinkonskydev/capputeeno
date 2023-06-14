@@ -8,9 +8,13 @@
 
   --shapes-dark: #09090A;
   --shapes-light: #DCE2E6;
+  --shapes-light-background: #F5F5FA;
 
+  --text: #617480;
   --text-dark: #737380;
   --text-dark-secondary: #41414D;
+
+  --blue: #115D8C;
 
   --on-all-elements: 50;
   --on-common-elements: 25;
