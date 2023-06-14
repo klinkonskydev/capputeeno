@@ -8,9 +8,11 @@ type CreateQueryStringParams = {
 
 const createQueryString = ({ name, value, searchParams }: CreateQueryStringParams) => {
   const params = new URLSearchParams(String(searchParams))
-  params.set(name, String(value))
 
-  return params.toString()
+  !!value && params.set(name, String(value))
+  !value && params.delete(name)
+
+  return new URLSearchParams(params.toString())
 }
 
 export default createQueryString

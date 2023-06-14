@@ -23,7 +23,7 @@ const Tab = ({ tabs }: TabsProps) => {
     <S.Root defaultValue="" data-orientation="horizontal">
       <S.List>
         {tabs.map(({ label, param }) => {
-          const params = new URLSearchParams(createQueryString({ name: 'category', value: param, searchParams }))
+          const params = createQueryString({ name: 'category', value: param, searchParams })
           const url = createUrl({ pathname, params })
 
           const activated =

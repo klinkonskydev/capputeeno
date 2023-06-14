@@ -21,7 +21,7 @@ export default function Pagination({ totalProduct, numberOfProductsPerPage = 12 
 
   const handleClick = (value: number) => {
     if (currentPage === value) return;
-    const params = new URLSearchParams(createQueryString({ name: 'page', value, searchParams }))
+    const params = createQueryString({ name: 'page', value, searchParams })
     const url = createUrl({ pathname, params })
     push(url)
   }
