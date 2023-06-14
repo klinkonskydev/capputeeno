@@ -36,6 +36,10 @@ export const ImageWrapper = styled.div`
   height: 300px;
   max-height: 300px;
   overflow: hidden;
+
+  & img {
+    object-fit: cover;
+  }
 `
 
 export const Content = styled.div`

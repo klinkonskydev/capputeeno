@@ -14,7 +14,7 @@ const TextField = ({
 }: TextFieldProps) => {
   return (
     <S.Wrapper iconPosition={iconPosition}>
-      {!!icon && <S.Icon aria-label={iconAriaLabel}>{icon}</S.Icon>}
+      {!!icon && <S.Icon type="submit" aria-label={iconAriaLabel}>{icon}</S.Icon>}
       <S.TextField {...props} />
     </S.Wrapper>
   )

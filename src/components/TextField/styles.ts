@@ -24,6 +24,9 @@ export const Icon = styled.button`
   outline: 0;
   background: transparent;
 
+  position: absolute;
+  cursor: pointer;
+
   width: fit-content;
   display: flex;
   align-items: center;
@@ -46,6 +49,8 @@ export const Wrapper = styled.div<WrapperProps>`
     width: 100%;
     max-width: 352px;
 
+    position: relative;
+
     background-color: var(--bg-secondary);
 
     border-radius: 8px;
@@ -54,14 +59,14 @@ export const Wrapper = styled.div<WrapperProps>`
     transition: border-color 200ms;
 
     cursor: pointer;
-    padding-${iconPosition}: 1.6rem;
+    padding-${iconPosition}: 4rem;
 
     &:focus-within {
       box-shadow: 0 0 0 2px black;
     }
 
     ${Icon} {
-      order: ${iconPosition === 'left' ? 0 : 1}
+      ${iconPosition}: 15px;
     }
   `}
 `

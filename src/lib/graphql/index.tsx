@@ -26,6 +26,7 @@ export const getProducts = (params: FilterParams) => {
 
   return {
     products: data?.data.data.allProducts ?? [],
+    totalProducts: data?.data?.data?._allProductsMeta?.count ?? 0,
     isLoading,
     refetch
   }

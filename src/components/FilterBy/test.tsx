@@ -41,7 +41,7 @@ describe('<FilterBy />', () => {
     expect(filterByButton).toBeInTheDocument()
     fireEvent(
       filterByButton,
-      new MouseEvent('click', {
+      new MouseEvent('mousedown', {
         bubbles: true,
         cancelable: true
       })

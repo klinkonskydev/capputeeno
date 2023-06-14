@@ -19,6 +19,7 @@ const Header = () => {
           <MediaMatch greaterThan="medium">
             <TextField
               placeholder="Procurando por algo específico?"
+              iconAriaLabel="Pesquisar"
               icon={<SearchIcon />}
             />
           </MediaMatch>

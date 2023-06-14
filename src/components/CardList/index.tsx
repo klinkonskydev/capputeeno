@@ -16,8 +16,8 @@ const CardList = ({ isLoading, products }: CardListProps) => {
     <CardListSkeleton />
   ) : (
     <S.Wrapper>
-      {products?.map((product) => (
-        <Cart key={product.id} {...product} />
+      {products?.map((product, index) => (
+        <Cart key={product.id} priority={index >= 4} {...product} />
       ))}
     </S.Wrapper>
   )

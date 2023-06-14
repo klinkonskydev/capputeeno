@@ -18,9 +18,14 @@ export type Product = {
   price_in_cents: number
 }
 
+export type AllProductsMeta = {
+  count: number
+}
+
 export type ProductsResponse = {
   data: {
     allProducts: Product[]
+    _allProductsMeta: AllProductsMeta
   }
 }
 

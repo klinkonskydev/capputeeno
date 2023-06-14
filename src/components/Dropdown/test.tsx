@@ -25,7 +25,7 @@ describe('<Dropdown />', () => {
 
     fireEvent(
       screen.getByLabelText(/toogle dropdown/),
-      new MouseEvent('click', {
+      new MouseEvent('mousedown', {
         bubbles: true,
         cancelable: true
       })
@@ -41,7 +41,7 @@ describe('<Dropdown />', () => {
 
     fireEvent(
       screen.getByLabelText(/toogle dropdown/),
-      new MouseEvent('click', {
+      new MouseEvent('mousedown', {
         bubbles: true,
         cancelable: true
       })
@@ -52,7 +52,7 @@ describe('<Dropdown />', () => {
 
     fireEvent(
       overlay!,
-      new MouseEvent('click', {
+      new MouseEvent('mousedown', {
         bubbles: true,
         cancelable: true
       })

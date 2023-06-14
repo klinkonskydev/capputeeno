@@ -1,22 +1,24 @@
 'use client'
 
 import { Suspense, useEffect } from 'react'
+import NextNProgress from 'nextjs-progressbar'
 
+import { FilterParams, ProductFilter } from 'lib/graphql/types'
+import { getProducts } from 'lib/graphql'
+import { creteGraphqlParamsByUrl } from 'utils/create-graphql-params-by-url'
 import HomeTemplate from 'templates/Home'
 import CardList from 'components/CardList'
 import Container from 'components/Container'
 import CardListSkeleton from 'components/CardList/skeleton'
-import { ProductFilter } from 'lib/graphql/types'
-import { getProducts } from 'lib/graphql'
-import { creteGraphqlParamsByUrl } from 'utils/create-graphql-params-by-url'
+import Pagination from 'components/Pagination'
 
 type HomeProps = {
-  searchParams: ProductFilter
+  searchParams: Omit<FilterParams, 'filter'> & ProductFilter
 }
 
 export default function Home({ searchParams }: HomeProps) {
-  const graphqlParams = creteGraphqlParamsByUrl({ params: searchParams })
-  const { products, isLoading, refetch } = getProducts(graphqlParams)
+  const graphqlParams = creteGraphqlParamsByUrl(searchParams)
+  const { products, isLoading, refetch, totalProducts } = getProducts(graphqlParams)
 
   useEffect(() => {
     refetch()
@@ -28,6 +30,8 @@ export default function Home({ searchParams }: HomeProps) {
         <Suspense fallback={<CardListSkeleton />}>
           <CardList products={products} isLoading={isLoading} />
         </Suspense>
+        <NextNProgress color="#FFA585" startPosition={0.3} stopDelayMs={200} height={8} showOnShallow={true} />
+        <Pagination totalProduct={totalProducts} />
       </Container>
     </HomeTemplate>
   )

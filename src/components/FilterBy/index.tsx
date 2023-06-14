@@ -10,7 +10,7 @@ const FilterBy = () => {
   return (
     <Dropdown
       title={
-        <S.Title>
+        <S.Title role="button" aria-haspopup="true">
           Filtrar por <CrossDown />
         </S.Title>
       }

@@ -11,14 +11,14 @@ export const List = styled(Tabs.List)`
   flex-shrink: 0;
   display: flex;
   width: fit-content;
-  gap: 4rem;
 `
 
 export const Trigger = styled(Tabs.Trigger)`
   all: unset;
   font: normal 600 1.6rem/2.2rem Saira, sans-serif;
   color: var(--text-dark);
-  padding: 0.8rem;
+  padding: 0.4rem 2rem 0;
+  box-sizing: border-box;
   cursor: pointer;
 
   &:first-child {
@@ -32,10 +32,21 @@ export const Trigger = styled(Tabs.Trigger)`
   &:hover {
     color: var(--shapes-dark);
   }
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+
+    background: transparent;
+  }
 
   &[data-state='active'] {
     color: var(--text-dark-secondary);
-    box-shadow: inset 0 -1px 0 0 var(--orange), 0 1px 0 0 var(--orange);
+
+    &::after {
+      background: var(--orange);
+    }
   }
 
   &:focus {

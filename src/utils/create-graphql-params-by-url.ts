@@ -1,20 +1,18 @@
 type CreateGraphqlParamsByUrlParams = {
   page?: number
   perPage?: number
-  params?: {
-    category?: 't-shirts' | 'mugs'
-    q?: string
-  }
+  category?: 't-shirts' | 'mugs'
+  q?: string
 }
 
 export const creteGraphqlParamsByUrl = ({
-  page = 0,
+  page = 1,
   perPage = 12,
-  params
+  ...params
 }: CreateGraphqlParamsByUrlParams) => {
   return {
-    page,
-    perPage,
+    page: Number(page - 1),
+    perPage: Number(perPage),
     filter: {
       ...params
     }

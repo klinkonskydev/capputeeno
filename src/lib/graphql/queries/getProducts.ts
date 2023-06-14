@@ -7,5 +7,9 @@ export const getProductsQuery = `
       price_in_cents
       category
     }
+
+    _allProductsMeta {
+      count
+    }
   }
 `
