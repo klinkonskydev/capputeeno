@@ -3,12 +3,13 @@ export type SortOrder = 'ASC' | 'DSC'
 
 export type SortFilterItem = {
   title: string
-  sortField?: SortField
+  sortField?: SortField | null
   sortOrder?: SortOrder
 }
 
 export const defaultSort: SortFilterItem = {
-  title: 'Novidades'
+  title: 'Novidades',
+  sortField: null
 }
 
 export const sorting: SortFilterItem[] = [

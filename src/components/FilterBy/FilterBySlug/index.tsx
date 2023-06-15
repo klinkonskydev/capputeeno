@@ -9,27 +9,28 @@ import createQueryString from 'utils/create-query-string'
 const SortFilterItem = ({ item }: { item: SortFilterItem }) => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const [active, setActive] = useState(
-    searchParams.get('sortField') === item.sortField
-  )
+
+  const sortField = searchParams.get('sortField')
+  const sortOrder = searchParams.get('sortOrder')
+
+  const [active, setActive] = useState(sortField === item.sortField)
 
   useEffect(() => {
-    const sortFieldIsEqual = searchParams.get('sortField') === item.sortField
-    const sortOrderIsEqual = searchParams.get('sortOrder')
-      ? searchParams.get('sortOrder') === item.sortOrder
-      : true
+    const sortFieldIsEqual = sortField === item.sortField
+    const sortOrderIsEqual = sortOrder ? sortOrder === item.sortOrder : true
     const isActive = sortFieldIsEqual && sortOrderIsEqual
     setActive(isActive)
   }, [searchParams, item.sortField, item.sortOrder])
 
-  const sortField = createQueryString({
+  const sortFieldQueryString = createQueryString({
     name: 'sortField',
     value: item?.sortField ?? '',
     order: item.sortOrder,
     searchParams,
     deleteOrder: !item?.sortOrder
   })
-  const withourSort = createQueryString({
+
+  const withoutSortFieldQueryString = createQueryString({
     name: 'sortField',
     value: '',
     searchParams,
@@ -38,13 +39,13 @@ const SortFilterItem = ({ item }: { item: SortFilterItem }) => {
 
   const href = item.sortField
     ? createUrl({
-        pathname,
-        params: new URLSearchParams(sortField)
-      })
+      pathname,
+      params: new URLSearchParams(sortFieldQueryString)
+    })
     : createUrl({
-        pathname,
-        params: new URLSearchParams(withourSort)
-      })
+      pathname,
+      params: new URLSearchParams(withoutSortFieldQueryString)
+    })
 
   return (
     <li>
