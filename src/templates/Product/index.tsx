@@ -9,12 +9,13 @@ import formatPrice from 'utils/format-price'
 import BackIcon from 'components/Icons/BackIcon'
 import { useRouter } from 'next/navigation'
 import ShoppingBagIcon from 'components/Icons/ShoppingBagIcon'
+import ProductSkeleton from './skeleton'
 
 const ProductTemplate = ({ id }: { id: string }) => {
-  const { product } = getProduct({ id })
+  const { product, isLoading } = getProduct({ id })
   const { back } = useRouter()
 
-  return (
+  return isLoading ? <ProductSkeleton /> : (
     <S.Wrapper as="main">
       <S.Link onClick={back}>
         <BackIcon title="Back to previous page" />
@@ -23,7 +24,7 @@ const ProductTemplate = ({ id }: { id: string }) => {
 
       <S.ContentWrapper>
         <S.ImageWrapper>
-          <Image alt={product.name} src={product.image_url} fill />
+          <Image alt={product.name} src={product.image_url} priority fill sizes="100%" />
         </S.ImageWrapper>
 
         <S.Content>

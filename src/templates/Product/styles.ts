@@ -114,7 +114,6 @@ export const DesciptionTitle = styled.h3`
 export const Description = styled.p`
   font: normal 400 1.4rem/150% Saira, sans-serif;
   color: var(--text-dark);
-  margin-bottom: 5.2rem;
 `
 
 export const Button = styled.button`
