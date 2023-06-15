@@ -24,7 +24,7 @@ const ProductTemplate = ({ id }: { id: string }) => {
 
       <S.ContentWrapper>
         <S.ImageWrapper>
-          <Image alt={product.name} src={product.image_url} priority fill sizes="100%" />
+          <Image alt={product.name} src={product.image_url} priority fill sizes="100%" objectFit="cover" />
         </S.ImageWrapper>
 
         <S.Content>

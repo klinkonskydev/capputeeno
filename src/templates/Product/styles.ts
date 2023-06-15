@@ -69,10 +69,6 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-
-  * img {
-    object-fit: content;
-  }
 `
 
 export const Content = styled.div`
