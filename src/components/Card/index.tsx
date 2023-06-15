@@ -10,7 +10,13 @@ type CardProps = {
   priority?: boolean
 } & Product
 
-const Card = ({ id, name, image_url, price_in_cents, priority = false }: CardProps) => {
+const Card = ({
+  id,
+  name,
+  image_url,
+  price_in_cents,
+  priority = false
+}: CardProps) => {
   const price = price_in_cents / 100
 
   return (

@@ -18,7 +18,8 @@ type HomeProps = {
 
 export default function Home({ searchParams }: HomeProps) {
   const graphqlParams = creteGraphqlParamsByUrl(searchParams)
-  const { products, isLoading, refetch, totalProducts } = getProducts(graphqlParams)
+  const { products, isLoading, refetch, totalProducts } =
+    getProducts(graphqlParams)
 
   useEffect(() => {
     refetch()
@@ -30,7 +31,13 @@ export default function Home({ searchParams }: HomeProps) {
         <Suspense fallback={<CardListSkeleton />}>
           <CardList products={products} isLoading={isLoading} />
         </Suspense>
-        <NextNProgress color="#FFA585" startPosition={0.3} stopDelayMs={200} height={8} showOnShallow={true} />
+        <NextNProgress
+          color="#FFA585"
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={8}
+          showOnShallow={true}
+        />
         <Pagination totalProduct={totalProducts} />
       </Container>
     </HomeTemplate>

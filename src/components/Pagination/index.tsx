@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
 import * as S from './styles'
 import { useSearchParams, useRouter, usePathname } from 'next/navigation'
@@ -10,7 +10,10 @@ type PaginationProps = {
   numberOfProductsPerPage?: number
 }
 
-export default function Pagination({ totalProduct, numberOfProductsPerPage = 12 }: PaginationProps) {
+export default function Pagination({
+  totalProduct,
+  numberOfProductsPerPage = 12
+}: PaginationProps) {
   const searchParams = useSearchParams()!
   const pathname = usePathname()
   const { push } = useRouter()
@@ -20,7 +23,7 @@ export default function Pagination({ totalProduct, numberOfProductsPerPage = 12 
   const arrayOfButtons = Array.from({ length: numberOfPages }, (_, i) => i + 1)
 
   const handleClick = (value: number) => {
-    if (currentPage === value) return;
+    if (currentPage === value) return
     const params = createQueryString({ name: 'page', value, searchParams })
     const url = createUrl({ pathname, params })
     push(url)
@@ -28,15 +31,17 @@ export default function Pagination({ totalProduct, numberOfProductsPerPage = 12 
 
   return (
     <S.Wrapper>
-      {arrayOfButtons.map((item) =>
+      {arrayOfButtons.map((item) => (
         <S.Button
-          data-state={String(currentPage) === String(item) ? 'active' : 'unactive'}
+          data-state={
+            String(currentPage) === String(item) ? 'active' : 'unactive'
+          }
           onClick={() => handleClick(item)}
           key={item}
         >
           {item}
         </S.Button>
-      )}
+      ))}
     </S.Wrapper>
   )
 }

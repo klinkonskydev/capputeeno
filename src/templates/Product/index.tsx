@@ -40,10 +40,12 @@ const ProductTemplate = ({ id }: { id: string }) => {
             <S.Description>{product.description}</S.Description>
           </div>
 
-          <S.Button>
-            <ShoppingBagIcon />
-            ADICIONAR AO CARRINHO
-          </S.Button>
+          <S.ButtonWrapper>
+            <S.Button>
+              <ShoppingBagIcon />
+              ADICIONAR AO CARRINHO
+            </S.Button>
+          </S.ButtonWrapper>
         </S.Content>
       </S.ContentWrapper>
     </S.Wrapper>

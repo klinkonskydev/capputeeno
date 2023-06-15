@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.nav`
   display: flex;
@@ -26,7 +26,7 @@ export const Button = styled.button`
 
   cursor: pointer;
 
-  &[data-state="active"] {
+  &[data-state='active'] {
     color: var(--orange);
     border-color: var(--orange);
     background: transparent;

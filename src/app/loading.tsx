@@ -12,7 +12,13 @@ export default function Loading() {
     <HomeTemplate>
       <Container>
         <CardListSkeleton />
-        <NextNProgress color="#FFA585" startPosition={0.3} stopDelayMs={200} height={8} showOnShallow={true} />
+        <NextNProgress
+          color="#FFA585"
+          startPosition={0.3}
+          stopDelayMs={200}
+          height={8}
+          showOnShallow={true}
+        />
       </Container>
     </HomeTemplate>
   )

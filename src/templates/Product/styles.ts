@@ -1,5 +1,6 @@
 import Container from 'components/Container'
 import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled(Container)`
   display: flex;
@@ -7,6 +8,8 @@ export const Wrapper = styled(Container)`
   gap: 3.2rem;
   width: 100%;
   height: 100%;
+  padding-bottom: 7rem;
+  box-sizing: border-box;
 `
 
 export const Link = styled.button`
@@ -19,12 +22,14 @@ export const Link = styled.button`
   align-items: center;
   gap: 1.1rem;
   width: fit-content;
+  border-radius: 4px;
 
   & svg {
     transition: scale 100ms ease-in;
   }
 
-  &:hover, &:hover path {
+  &:hover,
+  &:hover path {
     color: var(--text-dark-secondary);
     stroke: var(--text-dark-secondary);
   }
@@ -32,26 +37,41 @@ export const Link = styled.button`
   &:active svg {
     scale: 0.9;
   }
+
+  &:focus-within {
+    outline: 2px solid var(--black);
+  }
 `
 
 export const ContentWrapper = styled.section`
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: var(--image-size, 65rem) 1fr;
+  grid-template-rows: 1fr;
   gap: 3.2rem;
-  width: 100%;
-  height: 100%;
+  transition: 300ms;
+
+  ${media.lessThan('large')`
+    --image-size: 42rem;
+  `}
+
+  ${media.lessThan('medium')`
+    grid-template-columns: minmax(42rem, 50%);
+    grid-template-rows: 300px 1fr;
+    justify-content: center;
+  `}
+
+  ${media.lessThan('small')`
+    grid-template-columns: 1fr;
+  `}
 `
 
 export const ImageWrapper = styled.div`
   position: relative;
-
   width: 100%;
-  max-width: 640px;
-  height: 580px;
+  height: 100%;
 
   * img {
-    display: block;
-    object-fit: cover;
+    object-fit: content;
   }
 `
 
@@ -61,6 +81,10 @@ export const Content = styled.div`
   justify-content: space-between;
   min-height: 580px;
   height: 100%;
+
+  ${media.lessThan('medium')`
+    min-height: auto;
+  `}
 `
 
 export const Heading = styled.h2`
@@ -123,4 +147,25 @@ export const Button = styled.button`
   &:focus {
     border-color: var(--black);
   }
+`
+
+export const ButtonWrapper = styled.div`
+  ${media.lessThan('medium')`
+    width: 100vw;
+    padding: 1rem;
+    background: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    ${Button} {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  `}
 `

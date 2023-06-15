@@ -1,35 +1,30 @@
+export type SortField = 'price_in_cents' | 'sales'
+export type SortOrder = 'ASC' | 'DSC'
+
 export type SortFilterItem = {
   title: string
-  slug: string | null
-  sortKey: 'RELEVANCE' | 'BEST_SELLING' | 'CREATED_AT' | 'PRICE'
-  reverse: boolean
+  sortField?: SortField
+  sortOrder?: SortOrder
 }
 
 export const defaultSort: SortFilterItem = {
-  title: 'Novidades',
-  slug: null,
-  sortKey: 'RELEVANCE',
-  reverse: false
+  title: 'Novidades'
 }
 
 export const sorting: SortFilterItem[] = [
   defaultSort,
   {
     title: 'Preço: Maior - menor',
-    slug: 'price-desc',
-    sortKey: 'PRICE',
-    reverse: true
+    sortField: 'price_in_cents',
+    sortOrder: 'DSC'
   },
   {
     title: 'Preço: Menor - maior',
-    slug: 'price-asc',
-    sortKey: 'PRICE',
-    reverse: false
+    sortField: 'price_in_cents',
+    sortOrder: 'ASC'
   },
   {
     title: 'Mais vendidos',
-    slug: 'trending-desc',
-    sortKey: 'BEST_SELLING',
-    reverse: false
+    sortField: 'sales'
   }
 ]

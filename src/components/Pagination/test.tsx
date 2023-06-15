@@ -9,8 +9,7 @@ jest.mock('next/navigation', () => ({
     get: () => null
   }),
   usePathname: () => '/'
-}));
-
+}))
 
 describe('<Pagination />', () => {
   it('should render the buttons correctly', () => {

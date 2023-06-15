@@ -1,9 +1,9 @@
-import * as React from "react"
-import { SVGProps } from "react"
+import * as React from 'react'
+import { SVGProps } from 'react'
 
 type BackIconProps = {
-  title?: string;
-  titleId?: string;
+  title?: string
+  titleId?: string
 } & SVGProps<SVGSVGElement>
 
 const BackIcon = ({ title, titleId, ...props }: BackIconProps) => (

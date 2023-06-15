@@ -19,9 +19,13 @@ const Dropdown = ({ title, children }: DropdownProps) => {
 
   return (
     <S.Wrapper isOpen={isOpen}>
-      <S.Title onMouseDown={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>{title}</S.Title>
+      <S.Title onMouseDown={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
+        {title}
+      </S.Title>
 
-      <S.Content aria-hidden={!isOpen} role="menu">{children}</S.Content>
+      <S.Content aria-hidden={!isOpen} role="menu">
+        {children}
+      </S.Content>
       <S.Overlay aria-hidden={!isOpen} onMouseDown={() => setIsOpen(!isOpen)} />
     </S.Wrapper>
   )
