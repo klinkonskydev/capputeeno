@@ -1,5 +1,7 @@
 import QueryClientProvider from 'lib/query-client-provider'
+import { Suspense } from 'react'
 import ProductTemplate from 'templates/Product'
+import ProductSkeleton from 'templates/Product/skeleton'
 
 type ProductProps = {
   params: {
@@ -10,7 +12,9 @@ type ProductProps = {
 export default function Product({ params }: ProductProps) {
   return (
     <QueryClientProvider>
-      <ProductTemplate id={params?.id} />
+      <Suspense fallback={<ProductSkeleton />}>
+        <ProductTemplate id={params?.id} />
+      </Suspense>
     </QueryClientProvider>
   )
 }
