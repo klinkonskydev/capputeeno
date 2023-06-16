@@ -4,7 +4,6 @@ export const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 3.2rem;
   gap: 0.2rem;
 `
 export const Button = styled.button`

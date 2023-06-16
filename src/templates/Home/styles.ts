@@ -1,9 +1,16 @@
+import Container from 'components/Container'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   background: var(--bg-primary);
   min-height: calc(100vh - 98px);
   padding: 1.9rem 0;
+`
+
+export const ContentWrapper = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
 `
 
 export const TabsWrapper = styled.ul`

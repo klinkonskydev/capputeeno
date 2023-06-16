@@ -28,8 +28,6 @@ const Card = ({
           fill
           sizes={'(max-width: 768px) 300px, (min-width: 768px) 1fr'}
           priority={priority}
-          placeholder="blur"
-          blurDataURL={'/next.svg'}
         />
       </S.ImageWrapper>
 
