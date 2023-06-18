@@ -1,6 +1,16 @@
 import { render, screen } from '@testing-library/react'
 import Header from '.'
 
+jest.mock('next/navigation', () => ({
+  ...require('next-router-mock'),
+  useSearchParams: () => ({
+    default: [new URLSearchParams({ revalidate: '1' })],
+    get: () => null
+  }),
+  usePathname: () => '/'
+}))
+
+
 describe('<Header />', () => {
   it('should render correct', () => {
     render(<Header />)
