@@ -10,7 +10,6 @@ jest.mock('next/navigation', () => ({
   usePathname: () => '/'
 }))
 
-
 describe('<Header />', () => {
   it('should render correct', () => {
     render(<Header />)

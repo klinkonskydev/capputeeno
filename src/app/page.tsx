@@ -19,5 +19,11 @@ export default function Home({ searchParams }: HomeProps) {
     refetch()
   }, [searchParams, refetch])
 
-  return <HomeTemplate products={products} isLoading={isLoading} totalProducts={totalProducts} />
+  return (
+    <HomeTemplate
+      products={products}
+      isLoading={isLoading}
+      totalProducts={totalProducts}
+    />
+  )
 }

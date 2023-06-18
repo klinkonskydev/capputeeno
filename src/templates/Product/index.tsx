@@ -15,7 +15,9 @@ const ProductTemplate = ({ id }: { id: string }) => {
   const { product, isLoading } = getProduct({ id })
   const { back } = useRouter()
 
-  return isLoading ? <ProductSkeleton /> : (
+  return isLoading ? (
+    <ProductSkeleton />
+  ) : (
     <S.Wrapper as="main">
       <S.Link onClick={back}>
         <BackIcon title="Back to previous page" />
@@ -24,7 +26,14 @@ const ProductTemplate = ({ id }: { id: string }) => {
 
       <S.ContentWrapper>
         <S.ImageWrapper>
-          <Image alt={product.name} src={product.image_url} priority fill sizes="100%" objectFit="cover" />
+          <Image
+            alt={product.name}
+            src={product.image_url}
+            priority
+            fill
+            sizes="100%"
+            objectFit="cover"
+          />
         </S.ImageWrapper>
 
         <S.Content>

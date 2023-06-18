@@ -1,7 +1,5 @@
 'use client'
 
-import { getProducts } from 'lib/graphql'
-import { creteGraphqlParamsByUrl } from 'utils/create-graphql-params-by-url'
 import Tabs, { Tab } from 'components/Tabs'
 import FilterBy from 'components/FilterBy'
 import CardList from 'components/CardList'
@@ -10,8 +8,8 @@ import Pagination from 'components/Pagination'
 import Container from 'components/Container'
 
 import * as S from './styles'
-import { Suspense, useEffect } from 'react'
-import { FilterParams, Product, ProductFilter } from 'lib/graphql/types'
+import { Suspense } from 'react'
+import { Product } from 'lib/graphql/types'
 
 const tabs: Tab[] = [
   {
@@ -34,7 +32,11 @@ export type HomeTemplateProps = {
   totalProducts: number
 }
 
-export default function HomeTemplate({ totalProducts, products, isLoading }: HomeTemplateProps) {
+export default function HomeTemplate({
+  totalProducts,
+  products,
+  isLoading
+}: HomeTemplateProps) {
   return (
     <S.Wrapper>
       <Container>

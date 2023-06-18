@@ -17,7 +17,6 @@ const Header = () => {
 
   const [search, setSearch] = useState('')
 
-
   const handleSearch = () => {
     const params = createQueryString({
       name: 'q',
@@ -29,11 +28,15 @@ const Header = () => {
     push(url)
   }
 
-  const onInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value
-    setSearch(newValue)
-    !newValue.trim().length && handleSearch()
-  }, [])
+  const onInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = e.target.value
+      setSearch(newValue)
+      !newValue.trim().length && handleSearch()
+    },
+    // eslint-disable-next-line
+    []
+  )
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,7 +55,11 @@ const Header = () => {
             <TextField
               placeholder="Procurando por algo específico?"
               iconAriaLabel="Pesquisar"
-              icon={<span onClick={handleSearch}><SearchIcon /></span>}
+              icon={
+                <span onClick={handleSearch}>
+                  <SearchIcon />
+                </span>
+              }
               value={search}
               onChange={onInputChange}
             />

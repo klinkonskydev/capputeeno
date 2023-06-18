@@ -20,7 +20,7 @@ const SortFilterItem = ({ item }: { item: SortFilterItem }) => {
     const sortOrderIsEqual = sortOrder ? sortOrder === item.sortOrder : true
     const isActive = sortFieldIsEqual && sortOrderIsEqual
     setActive(isActive)
-  }, [searchParams, item.sortField, item.sortOrder])
+  }, [searchParams, item.sortField, item.sortOrder, sortField, sortOrder])
 
   const sortFieldQueryString = createQueryString({
     name: 'sortField',
@@ -39,13 +39,13 @@ const SortFilterItem = ({ item }: { item: SortFilterItem }) => {
 
   const href = item.sortField
     ? createUrl({
-      pathname,
-      params: new URLSearchParams(sortFieldQueryString)
-    })
+        pathname,
+        params: new URLSearchParams(sortFieldQueryString)
+      })
     : createUrl({
-      pathname,
-      params: new URLSearchParams(withoutSortFieldQueryString)
-    })
+        pathname,
+        params: new URLSearchParams(withoutSortFieldQueryString)
+      })
 
   return (
     <li>
