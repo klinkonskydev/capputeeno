@@ -32,7 +32,7 @@ export const Logo = styled.a`
   `}
 `
 
-export const TextFieldWrapper = styled.div`
+export const TextFieldWrapper = styled.form`
   display: flex;
   align-items: center;
   justify-content: flex-end;

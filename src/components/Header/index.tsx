@@ -6,8 +6,41 @@ import TextField from 'components/TextField'
 import * as S from './styles'
 import CartIcon from 'components/CartIcon'
 import MediaMatch from 'components/MediaMatch'
+import { useState, useDeferredValue, useCallback, memo } from 'react'
+import { usePathname, useSearchParams, useRouter } from 'next/navigation'
+import createQueryString from 'utils/create-query-string'
+import { createUrl } from 'utils/create-url'
 
 const Header = () => {
+  const searchParams = useSearchParams()
+  const pathname = usePathname()
+  const { push } = useRouter()
+
+  const [search, setSearch] = useState('')
+
+
+  const handleSearch = () => {
+    const params = createQueryString({
+      name: 'q',
+      value: search,
+      searchParams
+    })
+
+    const url = createUrl({ pathname, params })
+    push(url)
+  }
+
+  const onInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value
+    setSearch(newValue)
+    !newValue.trim().length && handleSearch()
+  }, [])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    handleSearch()
+  }
+
   return (
     <S.Header>
       <S.Content>
@@ -15,12 +48,14 @@ const Header = () => {
           capputeeno
         </S.Logo>
 
-        <S.TextFieldWrapper>
+        <S.TextFieldWrapper onSubmit={handleSubmit}>
           <MediaMatch greaterThan="medium">
             <TextField
               placeholder="Procurando por algo específico?"
               iconAriaLabel="Pesquisar"
-              icon={<SearchIcon />}
+              icon={<span onClick={handleSearch}><SearchIcon /></span>}
+              value={search}
+              onChange={onInputChange}
             />
           </MediaMatch>
           <CartIcon items={0} />
@@ -30,4 +65,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

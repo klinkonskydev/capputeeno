@@ -21,7 +21,7 @@ export const getProducts = (params: FilterParams) => {
   const { data, isLoading, refetch } = useQuery({
     queryFn: () =>
       fetcher<ProductsResponse, FilterParams>(params, getProductsQuery),
-    queryKey: ['getAllProducts']
+    queryKey: ['getAllProducts', params?.filter?.category]
   })
 
   return {
@@ -41,7 +41,7 @@ export const getProduct = (params: GetProductParam) => {
   const { data, isLoading } = useQuery({
     queryFn: () =>
       fetcher<ProductResponse, GetProductParam>(params, getProductQuery),
-    queryKey: ['getProduct']
+    queryKey: ['getProduct', params?.id]
   })
 
   return {

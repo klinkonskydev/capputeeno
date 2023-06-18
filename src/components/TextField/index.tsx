@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import * as S from './styles'
 
 export type TextFieldProps = {
@@ -23,4 +24,4 @@ const TextField = ({
     </S.Wrapper>
   )
 }
-export default TextField
+export default memo(TextField)
