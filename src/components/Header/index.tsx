@@ -6,14 +6,13 @@ import TextField from 'components/TextField'
 import * as S from './styles'
 import CartIcon from 'components/CartIcon'
 import MediaMatch from 'components/MediaMatch'
-import { useState, useDeferredValue, useCallback, memo } from 'react'
-import { usePathname, useSearchParams, useRouter } from 'next/navigation'
+import { useState, useCallback, memo } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import createQueryString from 'utils/create-query-string'
 import { createUrl } from 'utils/create-url'
 
 const Header = () => {
   const searchParams = useSearchParams()
-  const pathname = usePathname()
   const { push } = useRouter()
 
   const [search, setSearch] = useState('')
@@ -26,7 +25,7 @@ const Header = () => {
       searchParams
     })
 
-    const url = createUrl({ pathname, params })
+    const url = createUrl({ pathname: '/', params })
     push(url)
   }
 
